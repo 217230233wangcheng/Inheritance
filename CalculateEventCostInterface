@@ -1,0 +1,7 @@
+public intereface CalculateEventCostIterface
+public void calculayeEventCost();
+public class ConferenceEvent extends Event implements 
+CalculateEventCostInterface
+public class MusicEvent extends Event implements 
+CalculateEventCostInterface
+public class PastEvent extends Event

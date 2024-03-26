@@ -47,6 +47,6 @@ public class MusicConcertEvent extends Event{
                 "Event Name: " + geteventName() + "\n" +
                 "Event Location: " + geteventLocation() + "\n" +    
                 "Total Participants: " + gettotalParticipants() + "\n" +
-                "Total MusicConcert q Cost: " + musicConcertEventCost;
+                "Total MusicConcert Cost: " + musicConcertEventCost;
     }
 }
