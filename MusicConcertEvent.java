@@ -1,52 +1,36 @@
-public class MusicConcertEvent extends Event{
-    
+public class MusicConcertEvent<CalculateEventCostClass>{
+    private String eventID;
+    private String eventName;
+    private String eventLocation;
+    private String eventPointOfContact;
+    private double eventCost;
+    private int totalParticipants;
+    private int totalEventDays;
     private boolean merchandiseRequired;
     private double merchandiseCost;
-    private double musicConcertEventCost;
+    private CalculateEventCostClass calculateEventCostObject=new CalculateEventCostClass();
 
-  
-    public MusicConcertEvent(String eventID, String eventName, String eventLocation, String pointOfContact, int totalParticipants, int totalEventDays, double merchandiseCost) {
-        super(eventID, eventName, eventLocation, pointOfContact, totalParticipants, totalEventDays, totalEventDays);
-        this.merchandiseCost = merchandiseCost;
-    }
-
-
-    public boolean isMerchandiseRequired() {
-        return merchandiseRequired;
-    }
-
-    public void setMerchandiseRequired(boolean merchandiseRequired) {
+    public MusicConcertEvent(String eventID, String eventName, String eventLocation, String eventPointOfContact, double eventCost, int totalParticipants,int totalEventDays, boolean merchandiseRequired, double merchandiseCost) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventLocation = eventLocation;
+        this.eventPointOfContact = eventPointOfContact;
+        this.eventCost = eventCost;
+        this.totalParticipants = totalParticipants;
+        this.totalEventDays = totalEventDays;
         this.merchandiseRequired = merchandiseRequired;
-    }
-
-    public double getmerchandiseCost() {
-        return merchandiseCost;
-    }
-
-    public void setmerchandiseCost(double merchandiseCost) {
         this.merchandiseCost = merchandiseCost;
     }
 
-    public double getMusicConcertEvenCost() {
-        return musicConcertEventCost;
+    public double calculateEventCost(){
+        return eventCost = calculateEventCostObject.calculateEventCost() + (((Object) calculateEventCostObject).calculateEventCost() * 0.3);
     }
-
-    public void setMusicConcertEvenCost(double musicConcertEvenCost) {
-        this.musicConcertEventCost = musicConcertEvenCost;
-    }
-
-   
-    public void calculateEventCost() {
-        musicConcertEventCost = geteventCost() + (getmerchandiseCost() *  gettotalParticipants() * gettotalEventDays());
-    }
-
-  
-    @Override
     public String toString() {
-        return  "Event ID: " + geteventID() + "\n" +
-                "Event Name: " + geteventName() + "\n" +
-                "Event Location: " + geteventLocation() + "\n" +    
-                "Total Participants: " + gettotalParticipants() + "\n" +
-                "Total MusicConcert Cost: " + musicConcertEventCost;
+      return "Music Concert Event details:"+'\n'+
+              "Event ID: "+eventID+'\n'+
+              "Event Name: "+eventName+'\n'+
+              "Event Location: "+eventLocation+'\n'+
+              "Total Participants: "+totalParticipants+'\n'+
+              "Total Event Cost:"+calculateEventCost()+'\n';
     }
 }
